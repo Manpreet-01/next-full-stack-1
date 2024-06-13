@@ -19,7 +19,7 @@ export async function POST(request: Request) {
 
     if (user.isVerified) {
       return Response.json(
-        { success: false, message: 'You are already verifued so go ahead and login.' },
+        { success: false, message: 'You are already verified so go ahead and login.' },
         { status: 400 }
       );
     }
@@ -28,7 +28,7 @@ export async function POST(request: Request) {
     const isCodeValid = user.verifyCode === code;
     const isCodeNotExpired = new Date(user.verifyCodeExpiry) > new Date();
 
-    console.log("code meta :: ", { code: user.verifyCode, actualCode: code, isCodeValid, isCodeNotExpired });
+    // console.log("code meta :: ", { code: user.verifyCode, actualCode: code, isCodeValid, isCodeNotExpired });
 
     if (isCodeValid && isCodeNotExpired) {
       // Update the user's verification status
