@@ -76,7 +76,7 @@ export default function page() {
                 description: response.data.message
             });
 
-            router.replace("/verify/${username}");
+            router.replace(`/verify/${username}`);
         }
         catch (error) {
             console.error("err in signup of user :: ", error);
