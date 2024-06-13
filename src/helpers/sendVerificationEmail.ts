@@ -20,6 +20,8 @@ export async function sendVerificationEmail(
         console.log("sendVerificationEmail results data :: ", data);
         console.log("sendVerificationEmail results error :: ", error);
 
+        if (error) return { success: false, message: error.message };
+
         return { success: true, message: "Verification message send successfully." };
     } catch (error) {
         console.error("error sending verification emal :: ", error);

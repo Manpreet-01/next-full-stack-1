@@ -9,8 +9,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema } from "@/schemas/signupSchema";
 import axios, { AxiosError } from 'axios';
 import { ApiResponse } from "@/types/ApiResponse";
-import { Form, FormField, FormItem, FormLabel, Input } from "@/components/ui/form";
+import { Form, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from '@/components/ui/input';
 import { Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function page() {
     const [username, setUsername] = useState('');
@@ -111,7 +114,7 @@ export default function page() {
                                     <FormLabel>Username</FormLabel>
                                     <Input
                                         {...field}
-                                        onChange={(e) => {
+                                        onChange={(e: any) => {
                                             field.onChange(e);
                                             setUsername(e.target.value);
                                         }}
